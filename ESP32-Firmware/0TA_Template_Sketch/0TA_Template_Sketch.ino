@@ -2,7 +2,7 @@
                     // Has to be done before including "OTA.h"
 
 #include "OTA.h"
-#include <credentials.h>
+#include <Credentials.h>
 
 void setup() {
   Serial.begin(115200);

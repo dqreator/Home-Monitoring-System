@@ -10,7 +10,7 @@ from kivy.uix.screenmanager import (
     NoTransition
 ) 
 from InitialLoader import InitialLoader
-
+from MqttConnectionManager import MqttConnectionManager
 
 from Constants import (
     _C9C9C9,  # COLOR_OFF_LIGHT
@@ -53,6 +53,8 @@ class WindowManager(ScreenManager):
         # Object which does the screen loading during app initialization.
         self.initialLoader = InitialLoader(self)
 
+        self.mqtt = MqttConnectionManager(self)
+
         # Get rid of the ugly AsyncImage loading animation
         # and set our own error_image.
         Loader.loading_image = LOADER_LOADING_IMAGE
@@ -62,28 +64,7 @@ class WindowManager(ScreenManager):
         """Loads theme data from the settings file at startup.
         """
         print("Loading theme")
-        # loaded["theme"] = self.theme
-        # try:
-        #     with open(SETTINGS_FILE, "r+") as file:
-        #         loaded = json.load(file)
 
-        #     self.theme = loaded["theme"]
-
-        # except IOError:
-        #     # TODO: Settings file read error - add fault report
-        #     Logger.exception(OTHER_STRINGS["exception_file_read"][self.lang])
-
-        # # If "theme" key hasn't been found in settings file - add
-        # except KeyError:
-        #     loaded["theme"] = self.theme
-
-        #     try:
-        #         with open(SETTINGS_FILE, "w+") as file:
-        #             json.dump(loaded, file)
-
-        #     except IOError:
-        #         # TODO: Settings file write error - add fault report
-        #         Logger.exception(OTHER_STRINGS["exception_file_write"][self.lang])
 
     def on_theme(self, *args):
         """Changes the theme at on_theme change and saves selected theme
