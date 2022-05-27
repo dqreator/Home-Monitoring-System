@@ -1,0 +1,267 @@
+#:import DEG_C Strings.DEG_C
+#:import CM3 Strings.CM3
+#:import NAV_BUTTONS Strings.NAV_BUTTONS
+
+<TopPanelBackButtonLabel@Label>:
+    color: app.root.COLOR_BACKGROUND
+    font_size: 32
+    bold: True
+    text: NAV_BUTTONS["back"][app.root.lang]
+    size_hint: None, None
+    size: self.texture_size
+    text_size: None, None
+    halign: 'left'
+    valign: 'middle'
+
+<TopPanelExitButtonLabel@Label>:
+    color: app.root.COLOR_BACKGROUND
+    font_size: 32
+    bold: True
+    text: NAV_BUTTONS["exit"][app.root.lang]
+    size_hint: None, None
+    size: self.texture_size
+    text_size: None, None
+    halign: 'left'
+    valign: 'middle'
+
+<TopPanelNextButtonLabel@Label>:
+    color: app.root.COLOR_BACKGROUND
+    font_size: 32
+    bold: True
+    text: NAV_BUTTONS["next"][app.root.lang]
+    size_hint: None, None
+    size: self.texture_size
+    text_size: None, None
+    halign: 'left'
+    valign: 'middle'
+
+<ButtonLabel@Label>:
+    size_hint: None, None
+    color: app.root.COLOR_BACKGROUND
+    font_size: 32
+    bold: True
+    size: self.texture_size
+
+<RecycledMaterialLabel@Label>:
+    size_hint: None, None
+    color: app.root.COLOR_BACKGROUND
+    font_size: 32
+    bold: True
+    size: self.texture_size
+    text_size: None, None
+
+<JustifiedLabel@Label>:
+    size_hint: None, None
+    font_size: 36
+    markup: True
+    color: app.root.COLOR_ICON
+    text_size: self.parent.width, None
+    size: self.texture_size
+    halign: 'justify'
+    valign: 'top'
+
+<CenteredLabel@Label>:
+    size_hint: None, None
+    padding: '48dp', '0dp'
+    markup: True
+    font_size: 60
+    color: app.root.COLOR_ICON
+    text_size: self.parent.width, None
+    size: self.texture_size
+    halign: 'center'
+    valign: 'middle'
+
+<ProcessTimeLabel@Label>:
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    text: "00:00:00"
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<PressureLabelRight@Label>:
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    text: "{:0.2f} kPa".format(round(app.root.ccm.PRESSURE[0], 2))
+    on_text:
+        if app.root.ccm.PRESSURE[0] >= 100: self.parent.size[0] = '270dp'
+        elif app.root.ccm.PRESSURE[0] < 100 and app.root.ccm.PRESSURE[0] >= 10: self.parent.size[0] = '250dp'
+        elif app.root.ccm.PRESSURE[0] < 10 and app.root.ccm.PRESSURE[0] > -10: self.parent.size[0] = '230dp'
+        elif app.root.ccm.PRESSURE[0] <= -10 and app.root.ccm.PRESSURE[0] > -100: self.parent.size[0] = '250dp'
+        elif app.root.ccm.PRESSURE[0] <= -100: self.parent.size[0] = '270dp'
+    text_size: self.size
+    halign: 'right'
+    valign: 'middle'
+
+<CrucibleTemperatureLabel@Label>:
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<LeftDieTempLabel@Label>:
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<RightDieTempLabel@Label>:
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    # text: str(round(app.root.ccm.TEMP_TC[2])) + DEG_C
+    on_text:
+        # if app.root.ccm.TEMP_TC[2] >= 100: self.parent.size[0] = '182dp'
+        # elif app.root.ccm.TEMP_TC[2] <= 98: self.parent.size[0] = '162dp'
+        # ^ 2 deg C histeresis to prevent frequent layout changes while around 100 deg C
+    text_size: self.size
+    halign: 'right'
+    valign: 'middle'
+
+<DiesSetpointLabel@Label>:
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    # text: str(app.root.ccm.SETPOINT_DIES) + DEG_C
+    # on_text:
+    #     if app.root.ccm.TEMP_TC[2] >= 100: self.parent.size[0] = '182dp'
+    #     elif app.root.ccm.TEMP_TC[2] < 100: self.parent.size[0] = '162dp'
+    text_size: self.size
+    halign: 'right'
+    valign: 'middle'
+
+<CrucibleSetpointLabel@Label>:
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    # text: str(app.root.ccm.SETPOINT_CRUCIBLE) + DEG_C
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<CrucibleSetpointLabelTopRight@Label>:
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    # text: str(app.root.ccm.SETPOINT_DIES) + DEG_C
+    # on_text:
+    #     if app.root.ccm.TEMP_TC[2] >= 100: self.parent.size[0] = '182dp'
+    #     elif app.root.ccm.TEMP_TC[2] < 100: self.parent.size[0] = '162dp'
+    text_size: self.size
+    halign: 'right'
+    valign: 'middle'
+
+<CrucibleSetpointLabelRight@Label>:
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    # text: str(app.root.ccm.SETPOINT_DIES) + DEG_C
+    # on_text:
+    #     if app.root.ccm.TEMP_TC[2] >= 100: self.parent.size[0] = '182dp'
+    #     elif app.root.ccm.TEMP_TC[2] < 100 and app.root.ccm.TEMP_TC[2] >= 10: self.parent.size[0] = '162dp'
+    #     elif app.root.ccm.TEMP_TC[2] < 10: self.parent.size[0] = '140dp'
+    text_size: self.size
+    halign: 'right'
+    valign: 'middle'
+
+<MenuLabel@Label>:
+    size_hint_y: 0.2
+    color: app.root.COLOR_ICON
+    font_size: 36
+    bold: True
+    halign: 'center'
+    valign: 'middle'
+
+<DimensionsLabel@Label>:
+    bold: True
+    text: "Dimensions:"
+    color: app.root.COLOR_ICON
+    font_size: '18sp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<VolumeLabel@Label>:
+    bold: True
+    text: "Volume:"
+    color: app.root.COLOR_ICON
+    font_size: '18sp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<SizeLabel@Label>:
+    bold: True
+    text: "Size:"
+    color: app.root.COLOR_ICON
+    font_size: '18sp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<ModifiedLabel@Label>:
+    bold: True
+    text: "Modified:"
+    color: app.root.COLOR_ICON
+    font_size: '18sp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<DimensionsDataLabel@Label>:
+    text: "Length x width x depth in mm"
+    color: app.root.COLOR_ICON
+    font_size: '18sp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<VolumeDataLabel@Label>:
+    text: "Volume in" + CM3
+    color: app.root.COLOR_ICON
+    font_size: '18sp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<SizeDataLabel@Label>:
+    text: "Size of the file in MB"
+    color: app.root.COLOR_ICON
+    font_size: '18sp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+<ModifiedDataLabel@Label>:
+    text: "DD-MM-YYYY HH-MM-SS"
+    color: app.root.COLOR_ICON
+    font_size: '18sp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+
+# RV Labels
+
+<RecycleViewTitleLabel@Label>:
+    size_hint_x: None
+    text_size: None, self.height
+    width: self.texture_size[0]
+    bold: True
+    color: app.root.COLOR_ICON
+    font_size: '42sp'
+    halign: 'left'
+    valign: 'middle'
+
+<RecycleViewColumnTitle@Label>:
+    bold: True
+    color: app.root.COLOR_ICON
+    font_size: '24sp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'

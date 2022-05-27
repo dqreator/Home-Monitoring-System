@@ -1,0 +1,32 @@
+#:import LOGO_LOADING Images.LOGO_LOADING
+
+<SplashScreen>:
+    name:"splash"
+
+    loading: loading
+
+    RootBackground:
+
+    AnchorLayout:
+        Image:
+            color: root.manager.COLOR_ICON
+            keep_ratio: True
+            size_hint_y: None
+            height: '300dp'
+            source: LOGO_LOADING
+            keep_data: True
+
+        RelativeLayout:
+            size: self.parent.size
+            pos: self.parent.pos
+
+            Label:
+                id: loading
+                pos: '448dp', '-246dp'
+                color: root.manager.COLOR_ICON
+                font_size: 30
+                bold: True
+                text: "LOADING"
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'

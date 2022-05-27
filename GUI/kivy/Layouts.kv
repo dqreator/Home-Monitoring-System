@@ -1,0 +1,132 @@
+<WarningTriangleLayout@AnchorLayout>:
+    padding: '0dp','36dp', '0dp', '24dp'
+
+<TopPanelLayout@AnchorLayout>:
+    anchor_x: 'left'
+    anchor_y: 'top'
+    padding: '48dp','36dp', '48dp', '24dp'
+
+<TopPanelSubLayout@RelativeLayout>:
+    size_hint_y: None
+    height: '68dp'
+
+<BottomPanelLayout@AnchorLayout>:
+    pos: self.parent.pos
+    anchor_x: 'left'
+    anchor_y: 'bottom'
+    padding: '48dp','24dp', '48dp', '24dp'
+
+<BottomPanelSubLayout@RelativeLayout>:
+    pos: self.parent.pos
+    size_hint_y: None
+    size: '0dp', '64dp'
+
+<MenuLayout@GridLayout>:
+    padding: '48dp','24dp', '48dp', '24dp'
+    spacing: '24dp', '0dp'
+    pos: '0dp', '112dp'
+    size_hint_y: None
+    size: '0dp', '376dp'
+    cols: 3
+
+<MenuSublayout@RelativeLayout>:
+    size: self.parent.size
+    pos: self.parent.pos
+
+<ContentLayout@AnchorLayout>:
+    anchor_y: 'top'
+    padding: '0dp', '144dp', '0dp', '48dp'
+
+<ContentSublayout@GridLayout>:
+    size_hint: None, None
+    size: '928dp', '360dp'
+    rows: 1
+
+<ButtonLayout@RelativeLayout>:
+    size_hint_y: None
+    height: '64dp'
+
+<RecycledMaterialLayout@GridLayout>:
+    cols: 3
+    size_hint: None, None
+    padding: '136dp', '16dp', '136dp', '16dp'
+
+<ProcessTimeLayout@GridLayout>:
+    size_hint_x: None
+    size: '280dp', '0dp'
+    spacing: '16dp', '0dp'
+    cols: 2
+
+<CrucibleTemperatureSublayout@GridLayout>:
+    size_hint_x: None
+    size: '192dp', '0dp'
+    spacing: '16dp', '0dp'
+    cols: 2
+
+<PressureLayout@GridLayout>:
+    size_hint_x: None
+    size: '232dp', '0dp'
+    spacing: '16dp', '0dp'
+    cols: 2
+
+<LeftDieTempLayout@GridLayout>:
+    size_hint_x: None
+    size: '192dp', '0dp'
+    spacing: '16dp', '0dp'
+    cols: 2
+
+<RightDieTempLayout@AnchorLayout>:
+    anchor_x: "right"
+    anchor_y: "bottom"
+
+<RightDieTempSubLayout@GridLayout>:
+    size_hint_x: None
+    spacing: '16dp', '0dp'
+    size: '162dp', '0dp'
+    cols: 2
+
+<DiesSetpointLayout@AnchorLayout>:
+    anchor_x: "right"
+    anchor_y: "bottom"
+
+<DiesSetpointSubLayout@GridLayout>:
+    size_hint_x: None
+    spacing: '16dp', '0dp'
+    size: '162dp', '0dp'
+    cols: 2
+
+<CrucibleSetpointLayout@AnchorLayout>:
+    anchor_x: "right"
+    anchor_y: "bottom"
+
+<CrucibleSetpointSubLayout@GridLayout>:
+    size_hint_x: None
+    spacing: '16dp', '0dp'
+    size: '140dp', '0dp'
+    cols: 2
+
+<CrucibleSetpointTopRightSublayout@GridLayout>:
+    size_hint_x: None
+    spacing: '16dp', '0dp'
+    size: '162dp', '0dp'
+    cols: 2
+
+<PressureLayoutRight@AnchorLayout>:
+    anchor_x: "right"
+    anchor_y: "bottom"
+
+<PressureSublayoutRight@GridLayout>:
+    size_hint_x: None
+    spacing: '16dp', '0dp'
+    size: '148dp', '0dp'
+    cols: 2
+
+<ProcessPanelLayout@AnchorLayout>:
+    anchor_x: 'left'
+    anchor_y: 'bottom'
+    padding: '48dp','24dp', '48dp', '112dp'
+
+<ProcessPanelSubLayout@RelativeLayout>:
+    size_hint_y: None
+    size: '0dp', '64dp'
+

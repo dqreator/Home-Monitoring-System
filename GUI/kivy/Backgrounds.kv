@@ -1,0 +1,16 @@
+<AppBackground@Widget>:
+    canvas:
+        Color:
+            # WindowManager reached through app object
+            rgba: app.root.COLOR_BACKGROUND
+        Rectangle:
+            size: root.size  # Window size
+
+<RootBackground@Widget>:
+    canvas:
+        Color:
+            # app object unavailable yet, reaching manager through parent
+            # property of the current screen
+            rgba: root.parent.manager.COLOR_BACKGROUND
+        Rectangle:
+            size: root.size  # Window size

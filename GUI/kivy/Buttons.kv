@@ -1,0 +1,53 @@
+#:import OPACITY_FULL Constants.OPACITY_FULL
+
+<TopPanelLogoButton@TouchRippleButton>:
+    size_hint: None, None
+    size: '400dp', '104dp'
+    pos: '-10dp', '-20dp'
+    ripple_color: app.root.COLOR_BACKGROUND
+    # on_release: app.root.tpm.add_tab('status')
+
+<TopPanelBluetoothButton@TouchRippleButton>:
+    size_hint: None, None
+    size: '82dp', '104dp'
+    pos: '408dp', '-20dp'
+    ripple_color: app.root.COLOR_BACKGROUND
+    # on_release: app.root.tpm.add_tab('bluetooth')
+
+<TopPanelInfoButton@TouchRippleButton>:
+    size_hint: None, None
+    size: '82dp', '104dp'
+    pos: '504dp', '-20dp'
+    ripple_color: app.root.COLOR_BACKGROUND
+    # on_release: app.root.tpm.add_tab('info')
+
+<TopPanelBackButton@TouchRippleButton>:
+    size_hint: None, None
+    size: '180dp', '104dp'
+    pos: '590dp', '-20dp'
+    ripple_color: app.root.COLOR_BACKGROUND
+    opacity: OPACITY_FULL
+
+<TopPanelExitButton@TouchRippleButton>:
+    on_release: app.root.tpm.add_tab('confirmation')
+    size_hint: None, None
+    size: '180dp', '104dp'
+    pos: '590dp', '-20dp'
+    ripple_color: app.root.COLOR_BACKGROUND
+    opacity: OPACITY_FULL
+
+<TopPanelNextButton@TouchRippleButton>:
+    size_hint: None, None
+    size: '180dp', '104dp'
+    pos: '770dp', '-20dp'
+    ripple_color: app.root.COLOR_BACKGROUND
+    opacity: OPACITY_FULL
+
+<Menu3Button@TouchRippleButton>:
+    size_hint_y: None
+    height: '368dp'
+    pos: '0dp', '-40dp'
+
+<ButtonTouchArea@TouchRippleButton>:
+    size_hint: None, None
+    ripple_color: app.root.COLOR_BACKGROUND

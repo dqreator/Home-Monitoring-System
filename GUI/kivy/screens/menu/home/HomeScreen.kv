@@ -1,0 +1,175 @@
+#:import LOGO_LOADING Images.LOGO_LOADING
+#:import ICON_LANGUAGE_SCREEN Images.ICON_LANGUAGE_SCREEN
+#:import OPACITY_ZERO Constants.OPACITY_ZERO
+
+<HomeScreen>:
+    name: "home"
+
+    top_panel_layout: top_panel_layout
+    menu3_layout: menu3_layout
+    # menu2_layout: menu2_layout
+    back_button_background: back_button_background
+    back_button_label: back_button_label
+    back_button: back_button
+    next_button_background: next_button_background
+    next_button_label: next_button_label
+    next_button: next_button
+    menu3_icon_left: menu3_icon_left
+    menu3_label_left: menu3_label_left
+    menu3_button_left: menu3_button_left
+    menu3_icon_middle: menu3_icon_middle
+    menu3_label_middle: menu3_label_middle
+    menu3_button_middle: menu3_button_middle
+    menu3_icon_right: menu3_icon_right
+    menu3_label_right: menu3_label_right
+    menu3_button_right: menu3_button_right
+    menu2_icon_left: menu2_icon_left
+    menu2_label_left: menu2_label_left
+    menu2_button_left: menu2_button_left
+    menu2_icon_right: menu2_icon_right
+    menu2_label_right: menu2_label_right
+    menu2_button_right: menu2_button_right
+
+    loading_layout: loading_layout
+    loading_label: loading_label
+
+    # bottom_panel_layout: bottom_panel_layout
+
+    AppBackground:
+    # FullGrid:
+
+    TopPanelLayout:
+        id: top_panel_layout
+        TopPanelSubLayout:
+            # TopPanelLogo:
+            # TopPanelLogoButton:
+
+            TopPanelBluetoothIcon:
+            TopPanelBluetoothButton:
+
+            TopPanelLogo:
+            TopPanelLogoButton:
+
+            TopPanelInfoIcon:
+            TopPanelInfoButton:
+
+            TopPanelBackButtonBackground:
+                id: back_button_background
+            TopPanelBackButtonLabel:
+                id: back_button_label
+            TopPanelBackButton:
+                id: back_button
+                background_image: back_button_background
+                label: back_button_label
+
+            TopPanelNextButtonBackground:
+                id: next_button_background
+            TopPanelNextButtonLabel:
+                id: next_button_label
+            TopPanelNextButton:
+                id: next_button
+                background_image: next_button_background
+                label: next_button_label
+     
+     
+    MenuLayout:
+        id: menu3_layout
+        MenuSublayout:
+            MenuIcon:
+                id: menu3_icon_left
+            MenuLabel:
+                id: menu3_label_left
+            Menu3Button:
+                id: menu3_button_left
+                outside_label: menu3_label_left
+                background_image: menu3_icon_left
+                ripple_color: app.root.COLOR_BACKGROUND
+        MenuSublayout:
+            MenuIcon:
+                id: menu3_icon_middle
+            MenuLabel:
+                id: menu3_label_middle
+            Menu3Button:
+                id: menu3_button_middle
+                outside_label: menu3_label_middle
+                background_image: menu3_icon_middle
+                ripple_color: app.root.COLOR_BACKGROUND
+        MenuSublayout:
+            MenuIcon:
+                id: menu3_icon_right
+            MenuLabel:
+                id: menu3_label_right
+            Menu3Button:
+                id: menu3_button_right
+                outside_label: menu3_label_right
+                background_image: menu3_icon_right
+                ripple_color: app.root.COLOR_BACKGROUND
+
+    MenuLayout:
+        id: menu2_layout
+        cols: 2
+        MenuSublayout:
+            MenuIcon:
+                id: menu2_icon_left
+            MenuLabel:
+                id: menu2_label_left
+            TouchRippleButton:
+                id: menu2_button_left
+                outside_label: menu2_label_left
+                background_image: menu2_icon_left
+                ripple_color: app.root.COLOR_BACKGROUND
+        MenuSublayout:
+            MenuIcon:
+                id: menu2_icon_right
+            MenuLabel:
+                id: menu2_label_right
+            TouchRippleButton:
+                id: menu2_button_right
+                outside_label: menu2_label_right
+                background_image: menu2_icon_right
+                ripple_color: app.root.COLOR_BACKGROUND
+
+
+    AnchorLayout:
+        id: loading_layout
+        opacity: OPACITY_ZERO
+
+        Image:
+            color: app.root.COLOR_ICON
+            keep_ratio: True
+            size_hint_y: None
+            height: '300dp'
+            source: LOGO_LOADING
+            keep_data: True
+
+        RelativeLayout:
+            size: self.parent.size
+            pos: self.parent.pos
+
+            AnchorLayout:
+                pos: '0dp', '-246dp'
+                Label:
+                    id: loading_label
+                    color: app.root.COLOR_ICON
+                    font_size: 30
+                    bold: True
+                    size: self.texture_size
+                    text_size: None, None
+                    halign: 'left'
+                    valign: 'middle'
+
+ 
+    # BottomPanelLayout:
+    #     id: bottom_panel_layout
+    #     BottomPanelSubLayout:
+    #         LeftDieTempLayout:
+    #             LeftDieIcon:
+    #             LeftDieTempLabel:
+    #         AnchorLayout:
+    #             CrucibleTemperatureSublayout:
+    #                 CrucibleIcon:
+    #                 CrucibleTemperatureLabel:
+    #         RightDieTempLayout:
+    #             RightDieTempSubLayout:
+    #                 RightDieIcon:
+    #                 RightDieTempLabel:

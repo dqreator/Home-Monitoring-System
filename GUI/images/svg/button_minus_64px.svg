@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.700001"
+   version="1.1"
+   id="svg1367"
+   sodipodi:docname="button_minus.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:export-filename="C:\Users\barto\Desktop\Work\Graphics\icons\button_minus_64px.png"
+   inkscape:export-xdpi="128"
+   inkscape:export-ydpi="128">
+  <defs
+     id="defs1361" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="16.000001"
+     inkscape:cx="25.045765"
+     inkscape:cy="24.726613"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:pagecheckerboard="true"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-edge-midpoints="true" />
+  <metadata
+     id="metadata1364">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.4650212,-280.79426)">
+    <g
+       aria-label="+"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.12121201px;line-height:1.25;font-family:Lato;-inkscape-font-specification:'Lato Heavy';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       id="text823" />
+    <path
+       style="fill:#ffffff;stroke-width:1.1193068"
+       d="M 11.921875 8 C 10.167724 8.018898 8.2887276 9.1834167 8.0703125 11.046875 C 7.9832325 17.9605 8.052794 24.881436 8.03125 31.796875 C 8.1744185 33.655722 7.7752336 35.546478 8.2109375 37.378906 C 8.5275107 38.961281 10.071879 39.970327 11.625 39.982422 C 14.682385 40.005102 17.742365 39.999707 20.800781 39.992188 L 20.800781 40 C 21.867477 39.9988 22.933277 39.997447 24 39.998047 C 25.066719 39.99714 26.132526 39.998744 27.199219 40 L 27.199219 39.992188 C 30.257635 39.995287 33.317615 40.005132 36.375 39.982422 C 37.928117 39.971082 39.472483 38.961281 39.789062 37.378906 C 40.224766 35.546478 39.825732 33.655722 39.96875 31.796875 C 39.94683 24.881436 40.016687 17.9605 39.929688 11.046875 C 39.711267 9.1834387 37.832279 8.0172724 36.078125 8 C 32.052449 8.0113386 28.025851 8.0219913 24 8.0371094 C 19.974146 8.0257708 15.947548 8.0151181 11.921875 8 z M 16.080078 22.224609 L 21.96875 22.224609 L 26 22.224609 L 31.919922 22.224609 L 31.919922 25.775391 L 26 25.775391 L 21.96875 25.775391 L 16.080078 25.775391 L 16.080078 22.224609 z "
+       transform="matrix(0.26458333,0,0,0.26458333,1.4650212,280.79426)"
+       id="path865-6" />
+    <g
+       aria-label="+"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.12121201px;line-height:1.25;font-family:Lato;-inkscape-font-specification:'Lato Heavy';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       id="text823-4"
+       transform="translate(11.471393,-4.6134134)" />
+    <g
+       aria-label="+"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:Lato;-inkscape-font-specification:Lato;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       id="text817"
+       transform="translate(11.244792,-0.52503247)" />
+  </g>
+</svg>
