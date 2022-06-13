@@ -63,13 +63,13 @@ class HomeScreen(Screen):
     menu2_layout = ObjectProperty(None)
     menu1_layout = ObjectProperty(None)
 
-    back_button_background = ObjectProperty(None)
-    back_button_label = ObjectProperty(None)
-    back_button = ObjectProperty(None)
+    # back_button_background = ObjectProperty(None)
+    # back_button_label = ObjectProperty(None)
+    # back_button = ObjectProperty(None)
 
-    next_button_background = ObjectProperty(None)
-    next_button_label = ObjectProperty(None)
-    next_button = ObjectProperty(None)
+    # next_button_background = ObjectProperty(None)
+    # next_button_label = ObjectProperty(None)
+    # next_button = ObjectProperty(None)
 
     menu3_icon_left = ObjectProperty(None)
     menu3_label_left = ObjectProperty(None)
@@ -139,19 +139,19 @@ class HomeScreen(Screen):
         self.menu2_label_right.text = MAIN_MENU["place"][self.manager.lang]
         # calculate_menu3_buttons_fonts(self.menu3_label_left, self.menu3_label_middle, self.menu3_label_right)
 
-        calculate_nav_buttons(
-            self.back_button_label,
-            self.back_button_background,
-            self.next_button_label,
-            self.next_button_background
-        )
+        # calculate_nav_buttons(
+        #     self.back_button_label,
+        #     self.back_button_background,
+        #     self.next_button_label,
+        #     self.next_button_background
+        # )
 
-        self.back_button.disabled = False
-        self.next_button.disabled = False
+        # self.back_button.disabled = False
+        # self.next_button.disabled = False
 
         unbind_all_callbacks(self.menu2_button_left)
         unbind_all_callbacks(self.menu2_button_right)
-        unbind_all_callbacks(self.back_button)
+        # unbind_all_callbacks(self.back_button)
 
         # unbind_all_callbacks(self.back_button)
         bind_callback(self.menu2_button_left, self.invert_colors)
@@ -191,17 +191,17 @@ class HomeScreen(Screen):
         self.menu3_label_right.text = UTILITIES_MENU["consumables"][self.manager.lang]
         calculate_menu3_buttons_fonts(self.menu3_label_left, self.menu3_label_middle, self.menu3_label_right)
 
-        if self.previous_screen == "main":
-            self.back_button.disabled = False
+        # if self.previous_screen == "main":
+        #     self.back_button.disabled = False
 
         unbind_all_callbacks(self.menu3_button_left)
         unbind_all_callbacks(self.menu3_button_middle)
         unbind_all_callbacks(self.menu3_button_right)
-        unbind_all_callbacks(self.back_button)
+        # unbind_all_callbacks(self.back_button)
         # bind_callback(self.menu3_button_left, self.language_screen)
         # bind_callback(self.menu3_button_middle, self.invert_colors)
         # bind_callback(self.menu3_button_right, self.consumables_screen)
-        bind_callback(self.back_button, self.main_screen)
+        # bind_callback(self.back_button, self.main_screen)
         self.set_previous_screen()
 
 

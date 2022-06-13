@@ -2,7 +2,7 @@
 """
 
 # !ICON APP
-ICON_APP = "../images/WARDROBEU_LOGO_APP.png"
+ICON_APP = "../images/text2476.png"
 # ! Menu icons:
 ICON_MENU_SHUTDOWN = "../images/shutdown_248px.png"
 ICON_MENU_UTILITIES = "../images/settings_248px.png"
@@ -14,7 +14,7 @@ ICON_MENU_INVERT_TO_DARK = "../images/invert_on_248px.png"
 
 
 # $ Top panel:
-LOGO_TOP_PANEL = "../images/wardrobeu_logo_top_380px.png"
+LOGO_TOP_PANEL = "../images/text2476.png"
 ICON_TOP_PANEL_INFO = "../images/info_56px.png"
 BUTTON_TOP_PANEL_BACK = "../images/button_back_140px.png"
 BUTTON_TOP_PANEL_NEXT = "../images/button_next_140px.png"
@@ -80,7 +80,7 @@ BUTTON_ICON_CLOSE = "../images/close_tab_48px.png"
 
 # ! Others:
 LOGO_PROFILE_PREVIEW = "../images/mm3d_preview_logo_296px.png"
-LOGO_LOADING = '../images/wardrobeu_logo_400px.png'
+LOGO_LOADING = '../images/text2476.png'
 ICON_DROPDOWN = "../images/dropdown_24px.png"
 ICON_PREPROCESS_MATERIAL = "../images/materials_64px.png"
 ICON_PREPROCESS_CRUCIBLE = "../images/crucible_64px.png"
