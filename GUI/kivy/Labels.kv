@@ -246,22 +246,22 @@
     halign: 'left'
     valign: 'middle'
 
-# RV Labels
-
-<RecycleViewTitleLabel@Label>:
-    size_hint_x: None
-    text_size: None, self.height
-    width: self.texture_size[0]
-    bold: True
+<TempLabel@Label>:
+    size_hint_y: 0.2
+    text: "0.00"
+    pos: '0dp', '360dp'
     color: app.root.COLOR_ICON
-    font_size: '42sp'
-    halign: 'left'
+    font_size: 36
+    bold: False
+    halign: 'center'
     valign: 'middle'
 
-<RecycleViewColumnTitle@Label>:
-    bold: True
+<HumLabel@Label>:
+    size_hint_y: 0.2
+    text: "0 %"
+    pos: '0dp', '150dp'
     color: app.root.COLOR_ICON
-    font_size: '24sp'
-    text_size: self.size
-    halign: 'left'
+    font_size: 36
+    bold: False
+    halign: 'center'
     valign: 'middle'

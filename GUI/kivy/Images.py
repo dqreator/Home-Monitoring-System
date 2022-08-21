@@ -12,6 +12,11 @@ ICON_LANGUAGE_SCREEN = "../images/language_296px.png"
 ICON_MENU_INVERT_TO_LIGHT = "../images/invert_off_248px.png"
 ICON_MENU_INVERT_TO_DARK = "../images/invert_on_248px.png"
 
+ICON_HUMIDITY = "../images/humidity_icon.png"
+ICON_TEMPERATURE = "../images/temperature_icon.png"
+
+ICON_LIGHT_ON = "../images/lightbulb_on.png"
+ICON_LIGHT_OFF = "../images/lightbulb_off.png"
 
 # $ Top panel:
 LOGO_TOP_PANEL = "../images/text2476.png"

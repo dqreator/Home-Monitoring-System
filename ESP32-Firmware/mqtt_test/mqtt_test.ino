@@ -4,13 +4,9 @@
 #include "DHTesp.h"
 #include "Ticker.h"
 
-// #define DEBUG_VALUES
-#define DEBUG_MOTION
-#define DEBUG_LED
-
 // WiFi
-const char* ssid = "toya47625627";
-const char* password =  "g00MPh0k6K";
+const char* ssid = "StaromiejskieKlimatyII";
+const char* password =  "3264E937F";
 const int mqttPort = 1883;
 
 
@@ -19,7 +15,7 @@ const char *mqtt_broker = "broker.hivemq.com";
 const char* mqtt_username = "Saludos";
 const char* mqtt_password = "public";
 const int mqtt_port = 1883;
-const char *topic = "DQReator/home/room2/LigthC";
+const char *topic = "DQReator/home/room1/LigthC";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -45,16 +41,10 @@ float humidity = 0.0;
 char humstring[8];
 char tempstring[8];
 
-bool led_status = LOW;
-bool led_status_last = led_status;
-
-bool motion_status = LOW;
-bool motion_status_last = motion_status;
-
 void setup() {
  // Set software serial baud to 115200;
  Serial.begin(115200);
- pinMode(LED_BUILDIN, OUTPUT);
+
  // Connecting to a WiFi network
  WiFi.begin(ssid, password);
  while (WiFi.status() != WL_CONNECTED) {
@@ -89,11 +79,11 @@ void setup() {
 
   // Start task to get temperature
   xTaskCreatePinnedToCore(
-          tempTask,             /* Function to implement the task */
+          tempTask,          /* Function to implement the task */
           "tempTask ",          /* Name of the task */
-          1024,                 /* Stack size in words */
-          NULL,                 /* Task input parameter */
-          2,                    /* Priority of the task */
+          1024,           /* Stack size in words */
+          NULL,           /* Task input parameter */
+          2,              /* Priority of the task */
           &tempTaskHandle,      /* Task handle. */
           1);   
 
@@ -104,16 +94,32 @@ void setup() {
         tempTicker.attach(4, triggerGetTemp);
         Serial.println("Reading");
     }
+    // xTaskCreatePinnedToCore(
+    //     sendData,
+    //     "sendData",
+    //     1024,
+    //     NULL,
+    //     1,
+    //     NULL,
+    //     1);
 
   // Signal end of setup() to tasks
   tasksEnabled = true;
 }
 
-
+void callback(char *topic, byte *payload, unsigned int length) {
+ Serial.print("Message arrived in topic: ");
+ Serial.println(topic);
+ Serial.print("Message:");
+ for (int i = 0; i < length; i++) {
+     Serial.print((char) payload[i]);
+ }
+ Serial.println();
+ Serial.println("-----------------------");
+}
 
 void loop() {
  client.loop();
-     /**Check and Send Temperature and Humidity**/
    if (gotNewTemperature) {
     tempDHT = sensor1Data.temperature;
     humidity = sensor1Data.humidity;
@@ -122,47 +128,26 @@ void loop() {
     dtostrf(tempDHT, 1, 2, tempstring);
     Serial.print("Humidity: "); Serial.println(humstring);
     Serial.print("Temperature: "); Serial.println(tempstring);
-    client.publish(TOPIC_TEMPERATURE,tempstring);
-    client.publish(TOPIC_HUMIDITY,humstring);
+    client.publish("DQReator/home/room1/Temperature",tempstring);
+    client.publish("DQReator/home/room1/Humidity",humstring);
   }
-
-    /**Check and Send status of the motion sensor**/
-  motion_status = digitalRead(MOTION_SENSOR_PIN);
-  if(motion_status!=motion_status_last && motion_status == HIGH){
-    #ifdef DEBUG_MOTION
-    Serial.print("MOTION SENSOR ON\r\n");
-    #endif
-    client.publish(TOPIC_MOTION,"1");
-    motion_status_last = motion_status;
-  }else  if(motion_status!=motion_status_last && motion_status == LOW){
-    #ifdef DEBUG_MOTION
-    Serial.print("MOTION SENSOR OFF\r\n");
-    #endif
-    client.publish(TOPIC_MOTION,"0");
-    motion_status_last = motion_status;
-  }
-  else{motion_status_last = motion_status;}
-
-  /**Check and Send status of the led**/
-  led_status = digitalRead(LED_BUILDIN);
-  if(led_status!=led_status_last && led_status == HIGH){
-    #ifdef DEBUG_LED
-    Serial.print("LED ON\r\n");
-    #endif
-    client.publish(TOPIC_LED,"1");
-    led_status_last = led_status;
-  }else  if(led_status!=led_status_last && led_status == LOW){
-    #ifdef DEBUG_LED
-    Serial.print("LED OFF\r\n");
-    #endif
-    client.publish(TOPIC_LED,"0");
-    led_status_last = led_status;
-  }
-  else{led_status_last = led_status;}
-
-  vTaskDelay(DELAY_SENSORS / portTICK_PERIOD_MS);
-
 }
+
+// void sendData(void *parameters) {
+// //   if (gotNewTemperature) {
+// //     tempDHT = sensor1Data.temperature;
+// //     humidity = sensor1Data.humidity;
+// //     gotNewTemperature = false;
+// //     dtostrf(humidity, 1, 2, humstring);
+// //     dtostrf(tempDHT, 1, 2, tempstring);
+// //     Serial.print("Humidity: "); Serial.println(humstring);
+// //     Serial.print("Temperature: "); Serial.println(tempstring);
+// //     client.publish("DQReator/home/room1/Temperature",tempstring);
+// //     client.publish("DQReator/home/room1/Humidity",humstring);
+// //   }
+//    vTaskDelay(500 / portTICK_PERIOD_MS);
+// }
+
 
 //Tasks to keep reading the temperature from DHT
 void tempTask(void *pvParameters) {
@@ -182,17 +167,4 @@ void triggerGetTemp() {
   if (tempTaskHandle != NULL) {
      xTaskResumeFromISR(tempTaskHandle);
   }
-}
-
-
-void callback(char *topic, byte *payload, unsigned int length) {
- Serial.print("Message arrived in topic: ");
- Serial.println(topic);
- Serial.print("Message:");
- for (int i = 0; i < length; i++) {
-     Serial.print((char) payload[i]);
- }
- Serial.println();
- Serial.println("-----------------------");
- digitalWrite(LED_BUILDIN, !digitalRead(LED_BUILDIN));
 }

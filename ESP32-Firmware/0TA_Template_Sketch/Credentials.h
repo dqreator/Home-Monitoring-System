@@ -1,2 +1,2 @@
 #define mySSID "StaromiejskieKlimatyII"
-#define myPASSWORD "T4LKY3AXWLPU"
+#define myPASSWORD "3264E937F"

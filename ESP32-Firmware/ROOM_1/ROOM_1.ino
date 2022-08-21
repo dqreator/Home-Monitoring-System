@@ -4,9 +4,12 @@
 #include "DHTesp.h"
 #include "Ticker.h"
 
+
 // #define DEBUG_VALUES
+#define DEBUG_DOOR
 #define DEBUG_MOTION
 #define DEBUG_LED
+
 
 // WiFi
 const char* ssid = "toya47625627";
@@ -19,7 +22,7 @@ const char *mqtt_broker = "broker.hivemq.com";
 const char* mqtt_username = "Saludos";
 const char* mqtt_password = "public";
 const int mqtt_port = 1883;
-const char *topic = "DQReator/home/room2/LigthC";
+const char *topic = "DQReator/home/room1/LigthC";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -45,46 +48,51 @@ float humidity = 0.0;
 char humstring[8];
 char tempstring[8];
 
-bool led_status = LOW;
-bool led_status_last = led_status;
-
 bool motion_status = LOW;
 bool motion_status_last = motion_status;
 
+bool led_status = LOW;
+bool led_status_last = led_status;
+
+bool door_status = LOW;
+bool door_status_last = door_status;
+
 void setup() {
- // Set software serial baud to 115200;
- Serial.begin(115200);
- pinMode(LED_BUILDIN, OUTPUT);
- // Connecting to a WiFi network
- WiFi.begin(ssid, password);
- while (WiFi.status() != WL_CONNECTED) {
-     vTaskDelay(500 / portTICK_PERIOD_MS);
-     Serial.println("Connecting to WiFi..");
- }
- Serial.println("Connected to the WiFi network");
+  // Set software serial baud to 115200;
+  Serial.begin(115200);
 
- // Connecting to a mqtt broker
- client.setServer(mqtt_broker, mqtt_port);
- client.setCallback(callback);
+  // Set I/O
+  pinMode(LED_BUILDIN, OUTPUT);
+  pinMode(DOOR_SENSOR_PIN,INPUT);
 
- while (!client.connected()) {
-     String client_id = "esp32-client-";
-     client_id += String(WiFi.macAddress());
-     Serial.printf("The client %s connects to the public mqtt broker\n", client_id.c_str());
-     if (client.connect(client_id.c_str(), mqtt_username, mqtt_password)) {
-         Serial.println("Public emqx mqtt broker connected");
-     } else {
-         Serial.print("failed with state ");
-         Serial.print(client.state());
-         vTaskDelay(2000 / portTICK_PERIOD_MS);
-     }
+  // Connecting to a WiFi network
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+      vTaskDelay(500 / portTICK_PERIOD_MS);
+      Serial.println("CONNECTING WI-FI..");
+  }
+  Serial.println("-------->CONNECTION SUCCESFULLY");
+
+  // Connecting to a mqtt broker
+  client.setServer(mqtt_broker, mqtt_port);
+  client.setCallback(callback);
+
+  while (!client.connected()) {
+      String client_id = "esp32-client-";
+      client_id += String(WiFi.macAddress());
+      Serial.printf("The client %s connects to the public mqtt broker\n", client_id.c_str());
+      if (client.connect(client_id.c_str(), mqtt_username, mqtt_password)) {
+          Serial.println("Public emqx mqtt broker connected");
+      } else {
+          Serial.print("failed with state ");
+          Serial.print(client.state());
+          vTaskDelay(2000 / portTICK_PERIOD_MS);
+      }
  }
  // publish and subscribe
- client.publish(topic, "Hi, I'm ESP32 room 1^^");
+ client.publish(topic, "Hi, I'm ESP32 room 1");
  client.subscribe(topic);
-
-
-   //Configuration Humidity sensor
+//Configuration Humidity sensor
   dhtSensor1.setup(DAT_DHT22, DHTesp::DHT22);
 
   // Start task to get temperature
@@ -112,20 +120,22 @@ void setup() {
 
 
 void loop() {
- client.loop();
+  client.loop();
      /**Check and Send Temperature and Humidity**/
-   if (gotNewTemperature) {
+  if (gotNewTemperature) {
     tempDHT = sensor1Data.temperature;
     humidity = sensor1Data.humidity;
     gotNewTemperature = false;
     dtostrf(humidity, 1, 2, humstring);
     dtostrf(tempDHT, 1, 2, tempstring);
-    Serial.print("Humidity: "); Serial.println(humstring);
-    Serial.print("Temperature: "); Serial.println(tempstring);
+    #ifdef DEBUG_VALUES
+      Serial.print("Humidity: "); Serial.println(humstring);
+      Serial.print("Temperature: "); Serial.println(tempstring);
+    #endif
+
     client.publish(TOPIC_TEMPERATURE,tempstring);
     client.publish(TOPIC_HUMIDITY,humstring);
   }
-
     /**Check and Send status of the motion sensor**/
   motion_status = digitalRead(MOTION_SENSOR_PIN);
   if(motion_status!=motion_status_last && motion_status == HIGH){
@@ -143,7 +153,7 @@ void loop() {
   }
   else{motion_status_last = motion_status;}
 
-  /**Check and Send status of the led**/
+    /**Check and Send status of the led**/
   led_status = digitalRead(LED_BUILDIN);
   if(led_status!=led_status_last && led_status == HIGH){
     #ifdef DEBUG_LED
@@ -160,8 +170,24 @@ void loop() {
   }
   else{led_status_last = led_status;}
 
-  vTaskDelay(DELAY_SENSORS / portTICK_PERIOD_MS);
+    /**Check and Send status of the door sensor**/
+  door_status = digitalRead(DOOR_SENSOR_PIN);
+  if(door_status!=door_status_last && door_status == HIGH){
+    #ifdef DEBUG_DOOR
+    Serial.print("DOOR CLOSED\r\n");
+    #endif
+    client.publish(TOPIC_DOOR,"0");
+    door_status_last = door_status;
+  }else  if(door_status!=door_status_last && door_status == LOW){
+    #ifdef DEBUG_DOOR
+    Serial.print("DOOR OPEN\r\n");
+    #endif
+    client.publish(TOPIC_DOOR,"1");
+    door_status_last = door_status;
+  }
+  else{door_status_last = door_status;}
 
+  vTaskDelay(DELAY_SENSORS / portTICK_PERIOD_MS);
 }
 
 //Tasks to keep reading the temperature from DHT
@@ -178,21 +204,21 @@ void tempTask(void *pvParameters) {
     vTaskSuspend(NULL);
   }
 }
+
 void triggerGetTemp() {
   if (tempTaskHandle != NULL) {
      xTaskResumeFromISR(tempTaskHandle);
   }
 }
 
-
 void callback(char *topic, byte *payload, unsigned int length) {
- Serial.print("Message arrived in topic: ");
- Serial.println(topic);
- Serial.print("Message:");
- for (int i = 0; i < length; i++) {
-     Serial.print((char) payload[i]);
- }
- Serial.println();
- Serial.println("-----------------------");
- digitalWrite(LED_BUILDIN, !digitalRead(LED_BUILDIN));
+  Serial.print("Message arrived in topic: ");
+  Serial.println(topic);
+  Serial.print("Message:");
+  for (int i = 0; i < length; i++) {
+      Serial.print((char) payload[i]);
+  }
+  Serial.println();
+  Serial.println("-----------------------");
+  digitalWrite(LED_BUILDIN, !digitalRead(LED_BUILDIN));
 }

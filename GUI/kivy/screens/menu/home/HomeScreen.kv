@@ -1,39 +1,27 @@
 #:import LOGO_LOADING Images.LOGO_LOADING
 #:import ICON_LANGUAGE_SCREEN Images.ICON_LANGUAGE_SCREEN
 #:import OPACITY_ZERO Constants.OPACITY_ZERO
+#:import ICON_LIGHT_OFF Images.ICON_LIGHT_OFF
+#:import ICON_LIGHT_ON Images.ICON_LIGHT_ON
 
 <HomeScreen>:
     name: "home"
-
     top_panel_layout: top_panel_layout
-    menu3_layout: menu3_layout
-    # menu2_layout: menu2_layout
-    # back_button_background: back_button_background
-    # back_button_label: back_button_label
-    # back_button: back_button
-    # next_button_background: next_button_background
-    # next_button_label: next_button_label
-    # next_button: next_button
-    menu3_icon_left: menu3_icon_left
-    menu3_label_left: menu3_label_left
-    menu3_button_left: menu3_button_left
-    menu3_icon_middle: menu3_icon_middle
-    menu3_label_middle: menu3_label_middle
-    menu3_button_middle: menu3_button_middle
-    menu3_icon_right: menu3_icon_right
-    menu3_label_right: menu3_label_right
-    menu3_button_right: menu3_button_right
-    menu2_icon_left: menu2_icon_left
-    menu2_label_left: menu2_label_left
-    menu2_button_left: menu2_button_left
-    menu2_icon_right: menu2_icon_right
-    menu2_label_right: menu2_label_right
-    menu2_button_right: menu2_button_right
-
+    top_panel_button: top_panel_button
     loading_layout: loading_layout
     loading_label: loading_label
 
-    # bottom_panel_layout: bottom_panel_layout
+    light_1_icon: light_1_icon
+    light_1_button: light_1_button
+    temp1_label: temp1_label
+    hum1_label: hum1_label
+
+    light_2_icon: light_2_icon
+    light_2_button: light_2_button
+    temp2_label:temp2_label
+    hum2_label: hum2_label
+
+
 
     AppBackground:
     # FullGrid:
@@ -42,86 +30,71 @@
         id: top_panel_layout
         TopPanelSubLayout:
             TopPanelLogo:
+                id:top_panel_logo
             TopPanelLogoButton:
+                id: top_panel_button
+                pos:top_panel_logo.pos
 
-            # TopPanelInfoIcon:
-            # TopPanelInfoButton:
 
-            # TopPanelBackButtonBackground:
-            #     id: back_button_background
-            # TopPanelBackButtonLabel:
-            #     id: back_button_label
-            # TopPanelBackButton:
-            #     id: back_button
-            #     background_image: back_button_background
-            #     label: back_button_label
-
-            # TopPanelNextButtonBackground:
-            #     id: next_button_background
-            # TopPanelNextButtonLabel:
-            #     id: next_button_label
-            # TopPanelNextButton:
-            #     id: next_button
-            #     background_image: next_button_background
-            #     label: next_button_label
-     
-     
-    MenuLayout:
-        id: menu3_layout
-        MenuSublayout:
-            MenuIcon:
-                id: menu3_icon_left
-            MenuLabel:
-                id: menu3_label_left
-            Menu3Button:
-                id: menu3_button_left
-                outside_label: menu3_label_left
-                background_image: menu3_icon_left
-                ripple_color: app.root.COLOR_BACKGROUND
-        MenuSublayout:
-            MenuIcon:
-                id: menu3_icon_middle
-            MenuLabel:
-                id: menu3_label_middle
-            Menu3Button:
-                id: menu3_button_middle
-                outside_label: menu3_label_middle
-                background_image: menu3_icon_middle
-                ripple_color: app.root.COLOR_BACKGROUND
-        MenuSublayout:
-            MenuIcon:
-                id: menu3_icon_right
-            MenuLabel:
-                id: menu3_label_right
-            Menu3Button:
-                id: menu3_button_right
-                outside_label: menu3_label_right
-                background_image: menu3_icon_right
-                ripple_color: app.root.COLOR_BACKGROUND
-
+    
     MenuLayout:
         id: menu2_layout
         cols: 2
         MenuSublayout:
-            MenuIcon:
-                id: menu2_icon_left
             MenuLabel:
-                id: menu2_label_left
-            TouchRippleButton:
-                id: menu2_button_left
-                outside_label: menu2_label_left
-                background_image: menu2_icon_left
+                text: "Room 1"
+                pos: '0dp', '500dp'
+            TemperatureIcon:
+                pos: '-400dp', '350dp'
+            TempLabel:
+                id: temp1_label
+
+            HumidityIcon:
+                pos: '-400dp', '150dp'
+            HumLabel:
+                id: hum1_label
+
+            
+            LightIcon:
+                id: light_1_icon
+                source: ICON_LIGHT_OFF
+            MenuLabel:
+                id: light_1_label
+            Menu3Button:
+                id: light_1_button
+                pos: light_1_icon.pos
+                size: light_1_icon.size
+                outside_label: light_1_label
+                background_image: light_1_icon
                 ripple_color: app.root.COLOR_BACKGROUND
+                
+
         MenuSublayout:
-            MenuIcon:
-                id: menu2_icon_right
             MenuLabel:
-                id: menu2_label_right
-            TouchRippleButton:
-                id: menu2_button_right
-                outside_label: menu2_label_right
-                background_image: menu2_icon_right
+                text: "Room 2"
+                pos: '0dp', '500dp'
+            TemperatureIcon:
+                pos: '-400dp', '350dp'
+            TempLabel:
+                id: temp2_label
+            HumidityIcon:
+                pos: '-400dp', '150dp'
+            HumLabel:
+                id: hum2_label
+
+            LightIcon:
+                id: light_2_icon
+                source: ICON_LIGHT_OFF
+            MenuLabel:
+                id: light_2_label
+            Menu3Button:
+                id: light_2_button
+                pos: light_2_icon.pos
+                size: light_2_icon.size
+                outside_label: light_2_label
+                background_image: light_2_icon
                 ripple_color: app.root.COLOR_BACKGROUND
+
 
 
     AnchorLayout:
@@ -153,17 +126,4 @@
                     valign: 'middle'
 
  
-    # BottomPanelLayout:
-    #     id: bottom_panel_layout
-    #     BottomPanelSubLayout:
-    #         LeftDieTempLayout:
-    #             LeftDieIcon:
-    #             LeftDieTempLabel:
-    #         AnchorLayout:
-    #             CrucibleTemperatureSublayout:
-    #                 CrucibleIcon:
-    #                 CrucibleTemperatureLabel:
-    #         RightDieTempLayout:
-    #             RightDieTempSubLayout:
-    #                 RightDieIcon:
-    #                 RightDieTempLabel:
+

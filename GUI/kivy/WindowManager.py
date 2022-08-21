@@ -49,11 +49,13 @@ class WindowManager(ScreenManager):
 
         # Get rid of screen transitions for more snappy UI.
         self.transition = NoTransition()
+        
+        self.mqtt = MqttConnectionManager(self)
 
         # Object which does the screen loading during app initialization.
         self.initialLoader = InitialLoader(self)
 
-        self.mqtt = MqttConnectionManager(self)
+        
 
         # Get rid of the ugly AsyncImage loading animation
         # and set our own error_image.

@@ -46,6 +46,26 @@ _969696 = [0.59, 0.59, 0.59, 1]
 #$ MQTT  BROKER DATA 
 MQTT_HOSTNAME = 'broker.hivemq.com'
 MQTT_PORT = 1883
-TOPIC_SENDER = f'HOMETION/RECEIVER'
-TOPIC_RECEIVER = f'HOMETION/SENDER'
 
+TOPIC_SENDER_1 = f'DQReator/home/room1/message'
+TOPIC_SENDER_1 = f'DQReator/home/room2/message'
+
+TOPIC_LIGHT_1 = f'DQReator/home/room1/Ligth'
+TOPIC_LIGHT_2 = f'DQReator/home/room2/Ligth'
+
+TOPIC_LIGHT_1_C = f'DQReator/home/room1/LigthC'
+TOPIC_LIGHT_2_C = f'DQReator/home/room2/LigthC'
+
+TOPIC_HUMIDITY_1 = f'DQReator/home/room1/Humidity'
+TOPIC_HUMIDITY_2 = f'DQReator/home/room2/Humidity'
+
+TOPIC_TEMPERATURE_1 = f'DQReator/home/room1/Temperature'
+TOPIC_TEMPERATURE_2 = f'DQReator/home/room2/Temperature'
+
+TOPIC_DOOR_1 = f'DQReator/home/room1/Door'
+TOPIC_DOOR_2 = f'DQReator/home/room2/Door'
+
+TOPIC_BUZZER_1 = f'DQReator/home/room1/Buzzer'
+TOPIC_BUZZER_2 = f'DQReator/home/room2/Buzzer'
+
+degree_sign = u'\N{DEGREE SIGN}'

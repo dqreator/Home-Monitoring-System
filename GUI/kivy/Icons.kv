@@ -3,6 +3,8 @@
 
 #:import LOGO_TOP_PANEL Images.LOGO_TOP_PANEL
 #:import ICON_TOP_PANEL_INFO Images.ICON_TOP_PANEL_INFO
+#:import ICON_HUMIDITY Images.ICON_HUMIDITY
+#:import ICON_TEMPERATURE Images.ICON_TEMPERATURE
 
 #:import ICON_BOTTOM_PANEL_LEFT_DIE Images.ICON_BOTTOM_PANEL_LEFT_DIE
 #:import ICON_BOTTOM_PANEL_CRUCIBLE Images.ICON_BOTTOM_PANEL_CRUCIBLE
@@ -31,7 +33,17 @@
     size_hint: None, None
     width: '380dp'
     pos: self.parent.pos
-    pos: '0dp', '-22dp'
+    pos: '530dp', '-22dp'
+    color: app.root.COLOR_ICON
+    texture: self.texture
+    source: LOGO_TOP_PANEL
+    keep_data: True
+
+<TopPanelLogo@Image>:
+    size_hint: None, None
+    width: '380dp'
+    pos: self.parent.pos
+    pos: '540dp', '-22dp'
     color: app.root.COLOR_ICON
     texture: self.texture
     source: LOGO_TOP_PANEL
@@ -237,4 +249,35 @@
     keep_ratio: True
     texture: self.texture
     texture_size: self.size
+    keep_data: True
+
+<HumidityIcon@Image>:
+    size_hint: None, None
+    width: '1000dp'
+    # pos: self.parent.pos
+    # pos: '540dp', '-22dp'
+    color: app.root.COLOR_ICON
+    texture: self.texture
+    source: ICON_HUMIDITY
+    keep_data: True
+
+<TemperatureIcon@Image>:
+    size_hint: None, None
+    width: '1000dp'
+    # pos: self.parent.pos
+    # pos: '540dp', '-22dp'
+    color: app.root.COLOR_ICON
+    texture: self.texture
+    source: ICON_TEMPERATURE
+    keep_data: True
+
+
+
+<LightIcon@Image>:
+    size_hint_y: None
+    size: '150dp', '150dp'
+    pos: '0dp', '-70dp'
+    color: app.root.COLOR_ICON
+    texture: self.texture
+    source: ICON_NO_IMAGE
     keep_data: True
