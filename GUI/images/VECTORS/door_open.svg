@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="48"
+   width="48"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="door_open.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   inkscape:export-filename="C:\Users\M4800\Documents\AGH-LOCAL\LAB_INFORMATICS\00_PROJECT\Home-Monitoring-System\GUI\images\door_open.png"
+   inkscape:export-xdpi="1054.95"
+   inkscape:export-ydpi="1054.95"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     showgrid="false"
+     inkscape:zoom="8.4270833"
+     inkscape:cx="14.121137"
+     inkscape:cy="40.642769"
+     inkscape:window-width="2400"
+     inkscape:window-height="1271"
+     inkscape:window-x="2391"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="M22 25.5q.65 0 1.075-.45.425-.45.425-1.05 0-.65-.425-1.075Q22.65 22.5 22 22.5q-.6 0-1.05.425-.45.425-.45 1.075 0 .6.45 1.05.45.45 1.05.45ZM13 42v-3l14-2.45v-23.3q0-.7-.375-1.225-.375-.525-1.025-.625L13 9.45V6.5l13.3 2.3q1.6.25 2.65 1.525Q30 11.6 30 13.2V39Zm-7 0v-3h4V9.5q0-1.3.875-2.15Q11.75 6.5 13 6.5h22q1.3 0 2.15.85.85.85.85 2.15V39h4v3Zm7-3h22V9.5l-22-.05Z"
+     id="path2"
+     style="fill:#ffffff;fill-opacity:1"
+     inkscape:export-filename="C:\Users\M4800\Documents\AGH-LOCAL\LAB_INFORMATICS\00_PROJECT\Home-Monitoring-System\GUI\images\door_open.png"
+     inkscape:export-xdpi="1054.95"
+     inkscape:export-ydpi="1054.95" />
+</svg>

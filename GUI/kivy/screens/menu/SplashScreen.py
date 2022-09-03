@@ -19,11 +19,6 @@ class SplashScreen(Screen):
         not actually displayed. This is why the screen loading scheduled below
         is meant to start after 5 seconds.
         """
-        # Start the screen loading after 5 seconds, to let the
-        # program render and display this screen.
-        # If a way to check if the screen does actually display the
-        # required content here is found, the load_screens() function
-        # should be called after that check returns true.
         Clock.schedule_once(self.manager.initialLoader.load_screens, 4)
         self.dots = 0
         self.loading = Clock.schedule_once(self.loading_screen)

@@ -2,32 +2,10 @@
 #:import ICON_NO_IMAGE Images.ICON_NO_IMAGE
 
 #:import LOGO_TOP_PANEL Images.LOGO_TOP_PANEL
-#:import ICON_TOP_PANEL_INFO Images.ICON_TOP_PANEL_INFO
 #:import ICON_HUMIDITY Images.ICON_HUMIDITY
 #:import ICON_TEMPERATURE Images.ICON_TEMPERATURE
-
-#:import ICON_BOTTOM_PANEL_LEFT_DIE Images.ICON_BOTTOM_PANEL_LEFT_DIE
-#:import ICON_BOTTOM_PANEL_CRUCIBLE Images.ICON_BOTTOM_PANEL_CRUCIBLE
-#:import ICON_BOTTOM_PANEL_RIGHT_DIE Images.ICON_BOTTOM_PANEL_RIGHT_DIE
-#:import ICON_BOTTOM_PANEL_SETPOINT_CRUCIBLE Images.ICON_BOTTOM_PANEL_SETPOINT_CRUCIBLE
-#:import ICON_BOTTOM_PANEL_SETPOINT_DIES Images.ICON_BOTTOM_PANEL_SETPOINT_DIES
-#:import ICON_BOTTOM_PANEL_PRESSURE Images.ICON_BOTTOM_PANEL_PRESSURE
-#:import ICON_BOTTOM_PANEL_TIME Images.ICON_BOTTOM_PANEL_TIME
-
-#:import BUTTON_LEFT_END_64 Images.BUTTON_LEFT_END_64
-#:import BUTTON_MIDDLE_PART_64 Images.BUTTON_MIDDLE_PART_64
-#:import BUTTON_RIGHT_END_64 Images.BUTTON_RIGHT_END_64
-#:import BUTTON_FULL Images.BUTTON_FULL
-#:import BUTTON_TOP_PANEL_BACK Images.BUTTON_TOP_PANEL_BACK
-#:import BUTTON_TOP_PANEL_NEXT Images.BUTTON_TOP_PANEL_NEXT
-
-#:import LOGO_PROFILE_PREVIEW Images.LOGO_PROFILE_PREVIEW
-#:import ICON_DROPDOWN Images.ICON_DROPDOWN
-#:import IMAGE_WARNING_TRIANGLE Images.IMAGE_WARNING_TRIANGLE
-
-#:import OPACITY_ON Constants.OPACITY_ON
-#:import OPACITY_OFF Constants.OPACITY_OFF
-#:import OPACITY_WARNING Constants.OPACITY_WARNING
+#:import ICON_DOOR_CLOSED Images.ICON_DOOR_CLOSED
+#:import ICON_MOTION Images.ICON_MOTION
 
 <TopPanelLogo@Image>:
     size_hint: None, None
@@ -39,96 +17,6 @@
     source: LOGO_TOP_PANEL
     keep_data: True
 
-<TopPanelLogo@Image>:
-    size_hint: None, None
-    width: '380dp'
-    pos: self.parent.pos
-    pos: '540dp', '-22dp'
-    color: app.root.COLOR_ICON
-    texture: self.texture
-    source: LOGO_TOP_PANEL
-    keep_data: True
-
-<TopPanelBluetoothIcon@Image>:
-    size_hint_x: None
-    size: '56dp', '0dp'
-    pos: '421dp', '0dp'
-    color: app.root.COLOR_ICON
-    texture: self.texture
-    keep_data: True
-    # source: app.root.bcm.bluetooth_icon_source
-    # opacity: app.root.bcm.bluetooth_icon_opacity
-
-<TopPanelInfoIcon@Image>:
-    size_hint_x: None
-    size: '56dp', '0dp'
-    pos: '517dp', '0dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_ON
-    texture: self.texture
-    source: ICON_TOP_PANEL_INFO
-    keep_data: True
-
-<TopPanelBackButtonBackground@Image>:
-    size_hint: None, None
-    width: '140dp'
-    height: self.width / self.image_ratio
-    pos: '614dp', '0dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_OFF
-    texture: self.texture
-    source: BUTTON_TOP_PANEL_BACK
-    keep_data: True
-
-<TopPanelExitButtonBackground@Image>:
-    size_hint: None, None
-    width: '140dp'
-    height: self.width / self.image_ratio
-    pos: '614dp', '0dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_ON
-    texture: self.texture
-    source: BUTTON_TOP_PANEL_BACK
-    keep_data: True
-
-<TopPanelNextButtonBackground@Image>:
-    size_hint: None, None
-    width: '140dp'
-    height: self.width / self.image_ratio
-    pos: '786dp', '0dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_OFF
-    texture: self.texture
-    source: BUTTON_TOP_PANEL_NEXT
-    keep_data: True
-
-<ButtonLeftEnd@Image>:
-    size_hint: None, None
-    height: '64dp'
-    width: self.image_ratio * self.height
-    keep_data: True
-    allow_stretch: True
-    color: app.root.COLOR_ICON
-    source: BUTTON_LEFT_END_64
-
-<ButtonBody@Image>:
-    size_hint: None, None
-    height: '64dp'
-    keep_data: True
-    keep_ratio: False
-    allow_stretch: True
-    color: app.root.COLOR_ICON
-    source: BUTTON_MIDDLE_PART_64
-
-<ButtonRightEnd@Image>:
-    size_hint: None, None
-    height: '64dp'
-    width: self.image_ratio * self.height
-    keep_data: True
-    allow_stretch: True
-    color: app.root.COLOR_ICON
-    source: BUTTON_RIGHT_END_64
-
 <ButtonIcon@Image>:
     size_hint: None, None
     size: '48dp', '48dp'
@@ -136,126 +24,10 @@
     color: app.root.COLOR_BACKGROUND
     keep_data: True
 
-<WarningTriangle@Image>:
-    size_hint_y: None
-    height: '384dp'
-    source: IMAGE_WARNING_TRIANGLE
-    keep_data: True
-    opacity: OPACITY_WARNING
-
-<RecycledMaterialBackgroud@Image>:
-    size_hint: None, None
-    height: '80dp'
-    width: self.height * self.image_ratio
-    keep_data: True
-    color: app.root.COLOR_ICON
-    source: BUTTON_FULL
-
-<ProcessTimeIcon@Image>:
-    size_hint_x: None
-    width: '56dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_ON
-    texture: self.texture
-    source: ICON_BOTTOM_PANEL_TIME
-    keep_data: True
-
-<CrucibleIcon@Image>:
-    size_hint_x: None
-    width: '56dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_ON
-    texture: self.texture
-    source: ICON_BOTTOM_PANEL_CRUCIBLE
-    keep_data: True
-
-<CrucibleSetpointIcon@Image>:
-    size_hint_x: None
-    width: '56dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_ON
-    texture: self.texture
-    source: ICON_BOTTOM_PANEL_SETPOINT_CRUCIBLE
-    keep_data: True
-
-<DiesSetpointIcon@Image>:
-    size_hint_x: None
-    width: '56dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_ON
-    texture: self.texture
-    source: ICON_BOTTOM_PANEL_SETPOINT_DIES
-    keep_data: True
-
-<PressureIcon@Image>:
-    size_hint_x: None
-    width: '56dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_ON
-    texture: self.texture
-    source: ICON_BOTTOM_PANEL_PRESSURE
-    keep_data: True
-
-<LeftDieIcon@Image>:
-    size_hint_x: None
-    width: '56dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_ON
-    texture: self.texture
-    source: ICON_BOTTOM_PANEL_LEFT_DIE
-    keep_data: True
-
-<RightDieIcon@Image>:
-    size_hint_x: None
-    width: '56dp'
-    color: app.root.COLOR_ICON
-    opacity: OPACITY_ON
-    texture: self.texture
-    source: ICON_BOTTOM_PANEL_RIGHT_DIE
-    keep_data: True
-
-<DropdownIcon@Image>:
-    size_hint: None, None
-    size: '24dp', '24dp'
-    pos: '872dp', '18dp'
-    color: app.root.COLOR_ICON
-    source: ICON_DROPDOWN
-
-<StlImage@Image>:
-    source: LOGO_PROFILE_PREVIEW
-    color: app.root.COLOR_ICON
-
-<MenuIcon@Image>:
-    size_hint_y: None
-    size: '248dp', '248dp'
-    pos: '0dp', '64dp'
-    color: app.root.COLOR_ICON
-    texture: self.texture
-    source: ICON_NO_IMAGE
-    keep_data: True
-
-<RecycleViewBluetoothIcon@AsyncImage>:
-    size_hint_x: None
-    size: '32dp', '0dp'
-    # source: app.root.bcm.data_status_icon
-    color: app.root.COLOR_ICON
-    keep_ratio: True
-    keep_data: True
-
-<RecycleViewTitleIcon@Image>:
-    size_hint: None, None
-    size: '300dp', '300dp'
-    color: app.root.COLOR_ICON
-    keep_ratio: True
-    texture: self.texture
-    texture_size: self.size
-    keep_data: True
-
 <HumidityIcon@Image>:
     size_hint: None, None
     width: '1000dp'
-    # pos: self.parent.pos
-    # pos: '540dp', '-22dp'
+
     color: app.root.COLOR_ICON
     texture: self.texture
     source: ICON_HUMIDITY
@@ -264,13 +36,11 @@
 <TemperatureIcon@Image>:
     size_hint: None, None
     width: '1000dp'
-    # pos: self.parent.pos
-    # pos: '540dp', '-22dp'
+
     color: app.root.COLOR_ICON
     texture: self.texture
     source: ICON_TEMPERATURE
     keep_data: True
-
 
 
 <LightIcon@Image>:
@@ -280,4 +50,22 @@
     color: app.root.COLOR_ICON
     texture: self.texture
     source: ICON_NO_IMAGE
+    keep_data: True
+
+<MotionIcon@Image>:
+    size_hint_y: None
+    size: '75dp', '75dp'
+    pos: '0dp', '600dp'
+    texture: self.texture
+    source: ICON_NO_IMAGE
+    #source: ICON_MOTION
+    keep_data: True
+
+<DoorIcon@Image>:
+    size_hint_y: None
+    size: '150dp', '150dp'
+    pos: '365dp', '-70dp'
+    color: app.root.COLOR_ICON
+    texture: self.texture
+    source: ICON_DOOR_CLOSED
     keep_data: True

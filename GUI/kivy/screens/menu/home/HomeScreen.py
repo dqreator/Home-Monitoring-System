@@ -7,9 +7,7 @@ from kivy.clock import Clock
 import requests, json
 
 from UtilitiesScreen import (
-    on_language, 
     invert_colors,
-    change_language,
     )
 
 from Buttons import (
@@ -17,18 +15,6 @@ from Buttons import (
     unbind_all_callbacks, 
 )
 
-from Images import (
-    ICON_MENU_SHUTDOWN,
-    ICON_MENU_UTILITIES,
-    ICON_MENU_LANGUAGE,
-    ICON_MENU_INVERT_TO_DARK,
-    ICON_MENU_INVERT_TO_LIGHT,
-)
-
-from Strings import (
-    MAIN_MENU,
-    UTILITIES_MENU
-)
 
 from Constants import (
     OPACITY_FULL, 
@@ -58,12 +44,20 @@ class HomeScreen(Screen):
     top_panel_button = ObjectProperty(None)
     light_1_icon = ObjectProperty(None)
     light_1_button = ObjectProperty(None)
+
     temp1_label = ObjectProperty(None)
     hum1_label = ObjectProperty(None)
     light_2_icon = ObjectProperty(None)
     light_2_button = ObjectProperty(None)
+
     temp2_label = ObjectProperty(None)
+
     hum2_label = ObjectProperty(None)
+
+    door_icon = ObjectProperty(None)
+    motion_1_icon = ObjectProperty(None)
+    motion_2_icon = ObjectProperty(None)
+    
 
     def __init__(self, manager, **kwargs):
         super(HomeScreen, self).__init__(**kwargs)
@@ -154,14 +148,10 @@ class HomeScreen(Screen):
     # --------------------------------- UTILITIES -------------------------------- #
     # ---------------------------- UtilitiesScreen.py ---------------------------- #
 
-    def on_language(self, *args):
-        on_language(self, *args)
 
     def invert_colors(self, *args):
         invert_colors(self, *args)
 
-    def change_language(self, *args):
-        change_language(self, *args)
 
     # --------------------------------- UTILITIES -------------------------------- #
     # -------------------------- HomeScreenUtilities.py -------------------------- #

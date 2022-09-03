@@ -22,7 +22,7 @@ import WindowManager
 import TouchRippleButton
 
 
-class wardrobeuApp(App):
+class dqreatorHomeApp(App):
     def build(self):
         self.icon = ICON_APP
         return Builder.load_file("WindowManager.kv")
