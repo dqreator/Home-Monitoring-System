@@ -23,8 +23,9 @@ ICON_MOTION = "../images/motion.png"
 
 # $ Top panel:
 LOGO_TOP_PANEL = "../images/text2476.png"
-ICON_BUTTON_NO_IMAGE = "../images/no_image_48px.png"
-ICON_NO_IMAGE = "../images/no_icon_248px.png"
+ICON_BUTTON_NO_IMAGE = "../images/no_image.png"
+ICON_NO_IMAGE = "../images/no_image.png"
+
 
 
 # * Loader image replacements:

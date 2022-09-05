@@ -95,7 +95,6 @@ class HomeScreen(Screen):
         """Definition of what happens after the shutdown button is pressed.
         """
         App.get_running_app().stop()
-        # os.system('sudo shutdown -h now')
 
     def utilities_screen(self, *args):
         """Definition of the "Utilities Screen".MAIN_MENU

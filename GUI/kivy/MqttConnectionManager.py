@@ -31,6 +31,11 @@ from Constants import (
 )
 
 class MqttConnectionManager(EventDispatcher):
+    """Class that cares of all functionalities of mqtt connection.
+
+    Args:
+        EventDispatcher (_type_): _description_
+    """
     light1_status = BooleanProperty(False)
     light2_status = BooleanProperty(False)
 
@@ -80,16 +85,13 @@ class MqttConnectionManager(EventDispatcher):
 
 
     def on_message(self, client, userdata, message, *args):
-        #todo: Create functions to do an activity  acording with the message received
 
         try:
             self.message_handler(message)
             data = json.loads(message.payload)
             Logger.debug(f"{self.TAG}: Topic: {message.topic} | Message: {message.payload} ")
 
-            
         except Exception as e:
-            # Logger.critical(f'{self.TAG}: Invalid message')
             Logger.critical(f'{self.TAG}: error: {e} {message.topic}')
 
 #--------MISCELLANEUOS FUNCTIONS-----------------------------
@@ -102,6 +104,9 @@ class MqttConnectionManager(EventDispatcher):
             
 
     def message_handler(self, message):
+        """ Function that handles the message and make changes in the UI and 
+        update the values of the variables.
+        """
         
         def change_icon(Button, Image, *largs):
             Button.source = Image
