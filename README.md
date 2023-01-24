@@ -1,5 +1,5 @@
 # Home-Monitoring-System
-Project of a Home monitoring system
+Python Project of a Home monitoring system GUI using ESP32 and MQTT.
 
 The graphical interface was composed by two different screens, the Splash screen  and the Home screen. The first one will be displayed when  the program is loading, and the home screen displays the dashboard for the user.
 
